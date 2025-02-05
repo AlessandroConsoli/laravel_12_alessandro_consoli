@@ -1,0 +1,13 @@
+.bg-custom{
+    background-color: rgb(48, 0, 90);
+    color: antiquewhite;
+}
+
+.bg-form-custom{
+    background-color: rgb(56, 0, 105);
+
+}
+
+.nav-link:hover{
+    color: aqua !important;
+}
