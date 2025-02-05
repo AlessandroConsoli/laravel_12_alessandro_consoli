@@ -14,7 +14,7 @@ class ArticleController extends Controller
     {
         $articles = Article::all(); //per recuperare tutti gli articoli dal DB
 
-        return view('articles.index', compact('articles'));
+        return view('article.index', compact('articles')); //01:48:00
     }
 
     /**
@@ -22,7 +22,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('article.create');
     }
 
     /**
@@ -36,6 +36,8 @@ class ArticleController extends Controller
             'body' => $request->body,
             'img' => $request->file('img')->store('img', 'public'),
         ]);
+
+        return redirect(route('article.create'))->with('successMessage', "Hai inserito l'articolo correttamente!");
     }
 
     /**

@@ -11,6 +11,8 @@ Route::get('/', [PublicController::class, 'welcome'])->name('welcome');
 
 //? CROUD
 
-//* Rotte per la create
-//* create e store
-Route::get('/crea/articolo', [ArticleController::class, 'create'])->name('articles.create')->middleware('auth');
+//* Rotte per create e store
+Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create')->middleware('auth');
+Route::post('/article/store',[ArticleController::class, 'store'])->name('article.store')->middleware('auth');
+
+Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');

@@ -10,36 +10,33 @@
             <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Archivio Articoli</a>
+            <a class="nav-link active" aria-current="page" href="{{route('article.index')}}">Archivio Articoli</a>
           </li>
           @auth
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('articles.create')}}">Crea un articolo</a>
+            <a class="nav-link active" aria-current="page" href="{{route('article.create')}}">Crea un articolo</a>
           </li>
           @endauth
         </ul>
 
         @guest
         <div class="d-flex">
-          <a class="btn btn-outline-info border-2" href="{{route('login')}}">Accedi</a>
-        </div>
-        <div class="d-flex">
-          <a class="btn btn-outline-info border-2 ms-3" href="{{route('register')}}">Registrati</a>
+          <a class="btn btn-outline-info border-2 me-3" href="{{route('login')}}">Accedi</a>
+          <a class="btn btn-outline-info border-2" href="{{route('register')}}">Registrati</a>
         </div>  
         @endguest
 
         @auth
         {{--? Stringa nome utente loggato --}}
         <div class="d-flex">
-          <a class="btn btn-outline-info border-0 ms-3">Ciao {{Auth::user()->name}}</a>
-        </div>
-        {{--? Tasto Logout --}}
-        <div class="d-flex">          
+          <a class="btn btn-outline-info border-0 me-3 mt-2 p-0">Ciao {{Auth::user()->name}}</a>
+        
+        {{--? Tasto Logout --}}                  
           <form 
           action="{{route('logout')}}"
           method="POST">
           @csrf
-          <button class="btn btn-outline-info border-2 mx-3" type="submit">Logout</button>
+          <button class="btn btn-outline-info border-2" type="submit">Logout</button>
           </form>
         </div>
         @endauth

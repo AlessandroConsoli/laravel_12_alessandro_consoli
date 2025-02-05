@@ -1,7 +1,7 @@
 <x-layout>
 
     <x-header>
-      <h1>Registra un nuovo account</h1>
+      <h1 class="mt-5">Registra un nuovo account</h1>
     </x-header>
 
     <div class="container-fluid bg-custom vh-100 pt-5">

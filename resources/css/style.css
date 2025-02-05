@@ -11,3 +11,8 @@
 .nav-link:hover{
     color: aqua !important;
 }
+
+.btn-outline-info:hover{
+    background-color: rgb(43, 48, 53);
+    color: aqua;
+}
