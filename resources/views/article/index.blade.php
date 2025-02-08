@@ -6,12 +6,12 @@
 
     <div class="container-fluid bg-custom">
         <div class="row justify-content-center">
-            @foreach ($articles as $article)
+            @forelse ($articles as $article)
             <div class="card my-5 mx-5 bg-custom border-primary border-4" style="width: 24rem;">
                 <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="{{$article->title}}">
                 <div class="card-body">
-                    <h5 class="card-title">{{$article->title}}</h5>
-                    <p class="card-subtitle">{{$article->subtitle}}</p>
+                    <h4 class="card-title text-info">{{$article->title}}</h4>
+                    <p class="card-subtitle mb-4 fs-5">{{$article->subtitle}}</p>
                     <p class="card-text">{{$article->body}}</p>
                     <div class="d-grid gap-2 col-10 mx-auto">
                         <a href="{{route('article.show', compact('article') )}}" class="btn btn-outline-primary border-2 my-1">Vai all'articolo completo</a>
@@ -30,7 +30,11 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-12">
+                <h2 class="text-center vh-100 d-flex align-items-center justify-content-center">Non sono ancora presenti articoli in archivio</h2>
+            </div>
+            @endforelse
         </div>
     </div>
 

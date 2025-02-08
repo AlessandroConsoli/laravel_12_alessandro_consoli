@@ -25,17 +25,19 @@
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo</label>
-                    <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp">
+                    <input type="text" value="{{old('title')}}" name="title" class="form-control" id="title"  aria-describedby="emailHelp">
                 </div>
                 
                 <div class="mb-3">
                     <label for="subtitle" class="form-label">Sottotitolo</label>
-                    <input type="text" name="subtitle" class="form-control" id="subtitle">
+                    <input type="text" value="{{old('subtitle')}}" name="subtitle" class="form-control" id="subtitle">
                 </div>
                 
                 <div class="mb-3">
                     <label for="body" class="form-label">Corpo dell'articolo</label>
-                    <textarea class="form-control" name="body" id="body" cols="30" rows="5"></textarea>
+                    <textarea class="form-control" name="body" id="body" cols="30" rows="5">
+                        {{old('body')}}
+                    </textarea>
                 </div>
                 
                 <div class="mb-3">

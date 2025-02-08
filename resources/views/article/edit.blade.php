@@ -36,7 +36,9 @@
                 
                 <div class="mb-3">
                     <label for="body" class="form-label">Modifica il Corpo dell'articolo</label>
-                    <textarea class="form-control" name="body" value="{{$article->body}}" id="body" cols="30" rows="5"></textarea>
+                    <textarea class="form-control" name="body" id="body" cols="30" rows="5">
+                        {{$article->body}}
+                    </textarea>
                 </div>
                 
                 <div class="mb-3">

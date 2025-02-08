@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
@@ -28,8 +29,10 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
+        // $img= null;
+
         Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
@@ -61,9 +64,18 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article->update($request->all());
-        // dd($article);
-        return redirect()->back()->with('message', 'Articolo aggiornato con successo!');
+        $article->update([
+        $article->title = $request->title,
+        $article->subtitle = $request->subtitle,
+        $article->body = $request->body,
+        ]);
+
+        if ($request->img) {
+            $article->update([
+                $article->img = $request->file('img')->store('img', 'public')
+            ]);
+        }
+        return redirect(route('article.show', compact('article')))->with('successMessage', 'Articolo aggiornato con successo!');
     }
 
     /**
@@ -73,6 +85,6 @@ class ArticleController extends Controller
     {
         $article->delete();
 
-        return redirect(route('article.index'))->with('message', "Articolo eliminato dall'archivio");
+        return redirect(route('article.index'))->with('successMessage', "Articolo eliminato dall'archivio");
     }
 }

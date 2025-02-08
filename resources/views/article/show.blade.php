@@ -1,8 +1,8 @@
 <x-layout>
-    
     <x-header>
-
-        <div class="card text-center vh-100 bg-custom border-primary border-4 mt-5">
+        
+        <div class="card text-center bg-custom border-primary border-4 mt-5">
+            <x-display-messages/>
             <div class="card-header text-primary fs-1">
                 Articolo {{$article->id}}   
             </div>
