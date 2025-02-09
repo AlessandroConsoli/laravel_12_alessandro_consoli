@@ -31,7 +31,7 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        // $img= null;
+        // $imgDefault = file('public\storage\img\default.jpg');
 
         Article::create([
             'title' => $request->title,
@@ -71,6 +71,7 @@ class ArticleController extends Controller
         ]);
 
         if ($request->img) {
+            $request->validate(['img' => 'image']);
             $article->update([
                 $article->img = $request->file('img')->store('img', 'public')
             ]);

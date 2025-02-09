@@ -25,7 +25,7 @@ class ArticleRequest extends FormRequest
             'title' => 'required |min:12',
             'subtitle' => 'required',
             'body' => 'required',
-            'img' => 'required',
+            // 'img' => 'required',
         ];
     }
 
@@ -36,7 +36,6 @@ class ArticleRequest extends FormRequest
             'title.min' => 'Il titolo deve essere almeno di 12 caratteri',
             'subtitle.required' => 'Il campo "Sottotitolo" è obbligatorio',
             'body.required' => 'Il campo "Corpo articolo" è obbligatorio',
-            'img.required' => 'Il campo "Immagine" è obbligatorio'
         ];
     }
 }

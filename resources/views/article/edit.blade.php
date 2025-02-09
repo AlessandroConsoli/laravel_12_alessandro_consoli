@@ -4,9 +4,9 @@
         <h1 class="mt-5">Modifica il tuo articolo</h1>
     </x-header>
     
-    <x-display-errors/>
     
-    <div class="container-fluid bg-custom vh-100 pt-5">
+    <div class="container-fluid bg-custom pt-5">
+        <x-display-errors/>
         <x-display-messages/>
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
