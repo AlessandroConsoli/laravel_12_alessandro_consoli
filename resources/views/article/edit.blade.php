@@ -40,6 +40,11 @@
                         {{$article->body}}
                     </textarea>
                 </div>
+
+                <div class="mb-3">
+                    <span class="form-label">Immagine attuale</span>
+                    <img src="{{Storage::url($article->img)}}" alt="{{$article->title}}" width="100">
+                </div>
                 
                 <div class="mb-3">
                     <label for="img" class="form-label">Cambia immagine (facoltativo)</label>
