@@ -31,14 +31,22 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        // $imgDefault = file('public\storage\img\default.jpg');
+        // if ($request->file('img')) {
+        //     $img = $request->file('img')->store('img', 'public');
+        // }
 
-        Article::create([
+        $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
-            'img' => $request->file('img')->store('img', 'public'),
         ]);
+
+        if ($request->file('img')) {
+            
+            $article->img = $request->file('img')->store('img', 'public');
+            $article->save();
+
+        }
 
         return redirect(route('article.create'))->with('successMessage', "Hai inserito l'articolo correttamente!");
     }
