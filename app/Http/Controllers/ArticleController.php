@@ -31,9 +31,6 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        // if ($request->file('img')) {
-        //     $img = $request->file('img')->store('img', 'public');
-        // }
 
         $article = Article::create([
             'title' => $request->title,
