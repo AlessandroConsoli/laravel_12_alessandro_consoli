@@ -67,7 +67,7 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(ArticleRequest $request, Article $article)
     {
         $article->update([
         $article->title = $request->title,
@@ -76,7 +76,7 @@ class ArticleController extends Controller
         ]);
 
         if ($request->img) {
-            $request->validate(['img' => 'image']);
+            // $request->validate(['img' => 'image']);
             $article->update([
                 $article->img = $request->file('img')->store('img', 'public')
             ]);

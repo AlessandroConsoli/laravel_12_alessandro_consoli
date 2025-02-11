@@ -5,6 +5,7 @@
     </x-header>
 
     <div class="container-fluid bg-custom">
+        <x-display-messages/>
         <div class="row justify-content-center">
             @forelse ($articles as $article)
             <div class="card my-5 mx-5 bg-custom border-primary border-4" style="width: 24rem;">
