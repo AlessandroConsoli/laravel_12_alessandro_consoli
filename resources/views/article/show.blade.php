@@ -3,8 +3,11 @@
         
         <div class="card text-center bg-custom border-primary border-4 mt-5">
             <x-display-messages/>
-            <div class="card-header text-primary fs-1">
+            <div class="card-header text-primary border-primary fs-1">
                 Articolo {{$article->id}}   
+            </div>
+            <div class="mt-3"> 
+                Autore: {{$article->user->name}} {{--! Traversal model --}}
             </div>
             <div class="card-body">
                 <img src="{{Storage::url($article->img)}}" class="card-img-top img-custom img-fluid" alt="{{$article->title}}">
@@ -13,7 +16,7 @@
                 <p class="card-text">{{$article->body}}</p>
             </div>
             <div class="card-footer bg-custom border-primary">
-                2 ore fa
+                Ultima revisione: {{$article->user->updated_at}}
             </div>
         </div>
 

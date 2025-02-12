@@ -12,23 +12,25 @@
                 <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="{{$article->title}}">
                 <div class="card-body">
                     <h4 class="card-title text-info">{{$article->title}}</h4>
-                    <p class="card-subtitle mb-4 fs-5">{{$article->subtitle}}</p>
-                    <div class="d-grid gap-2 col-10 mx-auto">
-                        <a href="{{route('article.show', compact('article') )}}" class="btn btn-outline-primary border-2 my-1">Vai all'articolo completo</a>
-                        @auth
-                        <a href="{{route('article.edit', compact('article') )}}" class="btn btn-outline-warning border-2 my-1">Modifica l'articolo</a>
-                        <form 
-                        action="{{route('article.destroy', compact('article') )}}" 
-                        method="POST"> 
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger border-2 my-1 col-12">
-                            Elimina l'articolo
-                        </button>
-                        </form>
-                        @endauth
-                    </div>
+                    <p class="card-subtitle mb-4 fs-5">{{$article->subtitle}}<p>                     
+                    {{--! Traversal model --}}
                 </div>
+                <div class="d-grid gap-2 col-10 mx-auto">
+                    <a href="{{route('article.show', compact('article') )}}" class="btn btn-outline-primary border-2 my-1">Vai all'articolo completo</a>
+                    @auth
+                    <a href="{{route('article.edit', compact('article') )}}" class="btn btn-outline-warning border-2 my-1">Modifica l'articolo</a>
+                    <form 
+                    action="{{route('article.destroy', compact('article') )}}" 
+                    method="POST"> 
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-outline-danger border-2 my-1 col-12">
+                        Elimina l'articolo
+                    </button>
+                    </form>
+                    @endauth
+                </div>
+                <h6 class="card-subtitle mt-3">Creato da: {{$article->user->name}}</h6>
             </div>
             @empty
             <div class="col-12">

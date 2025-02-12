@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -36,6 +37,7 @@ class ArticleController extends Controller
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
+            'user_id' => $request->user()->id  //02:28:42
         ]);
 
         if ($request->file('img')) {
