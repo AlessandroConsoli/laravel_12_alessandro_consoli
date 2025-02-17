@@ -92,6 +92,10 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        
+        if ($article->img) {
+            Storage::disk('public')->delete($article->img);
+        }
         $article->delete();
 
         return redirect(route('article.index'))->with('successMessage', "Articolo eliminato dall'archivio");

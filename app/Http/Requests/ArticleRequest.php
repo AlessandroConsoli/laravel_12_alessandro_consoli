@@ -37,7 +37,7 @@ class ArticleRequest extends FormRequest
             'subtitle.required' => 'Il campo "Sottotitolo" è obbligatorio',
             'body.required' => 'Il campo "Corpo articolo" è obbligatorio',
             'img.image' => 'Formato non supportato',
-            'img.mimes' => 'Formato non supportato'
+            'img.mimes' => 'Formato immagine non supportato'
         ];
     }
 }
