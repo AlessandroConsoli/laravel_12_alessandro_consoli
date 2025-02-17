@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
-use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Container\Attributes\Auth;
 
 class ArticleController extends Controller
 {
@@ -72,15 +73,15 @@ class ArticleController extends Controller
     public function update(ArticleRequest $request, Article $article)
     {
         $article->update([
-        $article->title = $request->title,
-        $article->subtitle = $request->subtitle,
-        $article->body = $request->body,
+        'title' => $request->title,
+        'subtitle' => $request->subtitle,
+        'body' => $request->body,
         ]);
 
-        if ($request->img) {
-            // $request->validate(['img' => 'image']);
+        if ($request->file('img')) {
+            Storage::delete($article->img, 'public');
             $article->update([
-                $article->img = $request->file('img')->store('img', 'public')
+                'img' => $request->file('img')->store('img', 'public')
             ]);
         }
         return redirect(route('article.show', compact('article')))->with('successMessage', 'Articolo aggiornato con successo!');
