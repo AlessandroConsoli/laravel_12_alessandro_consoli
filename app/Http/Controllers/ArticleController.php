@@ -79,7 +79,7 @@ class ArticleController extends Controller
         ]);
 
         if ($request->file('img')) {
-            Storage::delete($article->img, 'public');
+            Storage::disk('public')->delete($article->img);
             $article->update([
                 'img' => $request->file('img')->store('img', 'public')
             ]);
