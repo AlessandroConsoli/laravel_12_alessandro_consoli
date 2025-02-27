@@ -41,11 +41,22 @@
                 </div>
                 
                 <div class="mb-3">
+                    @foreach ($tags as $tag)                        
+                    <div class="form-check">
+                        <input class="form-check-input" name="tags[]" type="checkbox" value="{{$tag->id}}" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{$tag->name}}
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+                
+                <div class="mb-3">
                     <label for="img" class="form-label">Inserisci un'immagine (facoltativo)</label>
                     <input type="file" name="img" class="form-control" id="img">
                 </div>
                 
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center mb-5">
                     <button type="submit" class="btn btn-secondary px-4">Conferma l'inserimento</button>
                 </div>
             </form>

@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
 
             //*Article ID
-            $table->unsignedBigInteger('article_id');  //?Creo la colonna article_id
+            $table->unsignedBigInteger('article_id')->nullable();  //?Creo la colonna article_id
             $table->foreign('article_id')->references('id')->on('articles');
 
             //*Tag ID
-            $table->unsignedBigInteger('tag_id');  //?Creo la colonna tag_id
+            $table->unsignedBigInteger('tag_id')->nullable();  //?Creo la colonna tag_id
             $table->foreign('tag_id')->references('id')->on('tags');
 
             $table->timestamps();

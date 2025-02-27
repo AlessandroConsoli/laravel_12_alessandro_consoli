@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
@@ -25,7 +26,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        $tags = Tag::all(); //?Recupero tutti i tag dalla tabella tags 
+                            //?che equivale al comando [SELECT * FROM tags]
+        return view('article.create', compact('tags'));
     }
 
     /**
@@ -48,6 +51,8 @@ class ArticleController extends Controller
 
         }
 
+        $article->tags()->attach($request->tags);
+
         return redirect(route('article.create'))->with('successMessage', "Hai inserito l'articolo correttamente!");
     }
 
@@ -64,7 +69,10 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('article.edit', compact('article'));
+        $tags = Tag::all(); //?Recupero tutti i tag dalla tabella tags 
+
+
+        return view('article.edit', compact('article', 'tags'));
     }
 
     /**
@@ -77,6 +85,9 @@ class ArticleController extends Controller
         'subtitle' => $request->subtitle,
         'body' => $request->body,
         ]);
+
+        $article->tags()->sync($request->tags); //*Sincronizza ed aggiorna i tag 
+                                                //*selezionati e quelli deselezionati
 
         if ($request->file('img')) {
             Storage::disk('public')->delete($article->img);
@@ -92,6 +103,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $article->tags()->detach(); //!Elimina ogni vincolo di relazione tra i due modelli (Article e Tag)
         
         if ($article->img) {
             Storage::disk('public')->delete($article->img);

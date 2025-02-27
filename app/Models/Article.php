@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
@@ -16,6 +17,12 @@ class Article extends Model
         'img',
         'user_id'
     ];
+
+    //? Definisco la Many to Many in Article
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 
     //*Get the user that owns the article.
     public function user()

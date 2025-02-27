@@ -12,8 +12,13 @@
                 <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="{{$article->title}}">
                 <div class="card-body">
                     <h4 class="card-title text-info">{{$article->title}}</h4>
-                    <p class="card-subtitle mb-4 fs-5">{{$article->subtitle}}<p>                     
+                    <p class="card-subtitle mb-4 fs-5">{{$article->subtitle}}<p>
+                    @if ($article->tags->isNotEmpty())       
+                    @foreach ($article->tags as $tag)
+                    <span class="badge text-bg-success">#{{$tag->name}}</span>                     
+                    @endforeach                 
                     {{--! Traversal model --}}
+                    @endif
                 </div>
                 <div class="d-grid gap-2 col-10 mx-auto">
                     <a href="{{route('article.show', compact('article') )}}" class="btn btn-outline-primary border-2 my-1">Vai all'articolo completo</a>

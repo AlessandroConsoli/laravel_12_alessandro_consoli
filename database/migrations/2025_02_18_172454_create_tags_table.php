@@ -21,6 +21,7 @@ return new class extends Migration
         $tags = ['Attualità', 'Musica', 'E-sports', 'Cronaca', 'Satira', 'Scientifico', 'Trend', 'Formazione', 'Motori'];
 
         foreach ($tags as $tag) {
+            //? MASS ASSIGMENT
             Tag::create([
                 'name' => $tag
             ]);
