@@ -2,7 +2,13 @@
 
     <x-header>
         <x-display-messages/>
-        <h1 class="vh-100 d-flex align-items-center">Benvenuti in questo Blog</h1>
+        <div class="container">
+            <div class="row justify-content-center align-items-center vh-custom">
+                <div class="col-12 col-md-8">
+                    <h1 class="bg-title">Benvenuti in questo Blog</h1>
+                </div>
+            </div>
+        </div>
     </x-header>
 
     

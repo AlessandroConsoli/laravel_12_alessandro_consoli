@@ -8,7 +8,7 @@
         <x-display-messages/>
         <div class="row justify-content-center">
             @forelse ($articles as $article)
-            <div class="card my-5 mx-5 bg-custom border-primary border-4" style="width: 24rem;">
+            <div class="card my-5 mx-5 bg-card border-primary border-4" style="width: 24rem;">
                 <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="{{$article->title}}">
                 <div class="card-body">
                     <h4 class="card-title text-info">{{$article->title}}</h4>

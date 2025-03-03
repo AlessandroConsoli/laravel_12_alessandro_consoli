@@ -1,4 +1,20 @@
 .bg-custom{
+    background-image: url(https://preview.redd.it/s5aqax5kyf8a1.jpg?width=1080&crop=smart&auto=webp&s=0e21c4517de72a27b7a7276e25533330b347d81f);
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    /* background-color: rgb(48, 0, 90); */
+    color: antiquewhite;
+}
+
+.vh-custom{
+    height: 80vh;
+}
+
+.bg-title{
+    background-color:rgba(0, 0, 255, 0.237);
+}
+
+.bg-card{
     background-color: rgb(48, 0, 90);
     color: antiquewhite;
 }
